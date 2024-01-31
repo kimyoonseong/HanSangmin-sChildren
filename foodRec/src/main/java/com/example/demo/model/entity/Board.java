@@ -1,6 +1,6 @@
 package com.example.demo.model.entity;
 
-import com.example.demo.dto.BoardDto;
+import com.example.demo.model.dto.BoardDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,8 +26,9 @@ public class Board {
 	private int no;// 게시판 글 번호
 	private String title;//레시피 글 제목
 	private String content;//레시피
-	@ManyToOne
-	@JoinColumn(name="user_id")//Select * from user where id=??
+	
+//	@ManyToOne
+//	@JoinColumn(name="user_id")//Select * from user where id=??
 //	User user;
 	
 	public BoardDto toDto() { 
@@ -35,7 +36,7 @@ public class Board {
 		dto.setNo(this.getNo());
 		dto.setTitle(this.getTitle());
 		dto.setContent(this.getContent());
-		dto.setUser_Id(this.getUser().getId());
+//		dto.setUser_Id(this.getUser().getId());
 		return dto;
 	}
 }
