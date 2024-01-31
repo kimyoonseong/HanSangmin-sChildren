@@ -27,14 +27,14 @@ public class BoardController {
 	// 레시피를 form으로 받아서 전달
 	@PostMapping("/regist") 
 	public String registBoard(@ModelAttribute BoardDto board) { 
-		//service.writeBoard(board);
+		service.writeBoard(board);
 		return "redirect:/board/list";
 	}
 	// 레시피 목록 출력
 	@GetMapping("/list")  // Model - spring ui 입력받은 값을 바로 화면에서 ${ }로 사용할 수 있는 requestScope로 전달
 	public String list(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { 
 		page--;
-		//Page<Board> pageInfo = service.listBoard(page);
+		Page<Board> pageInfo = service.listBoard(page);
 		model.addAttribute("pageInfo", pageInfo);
 		
 		log.debug("page: {}",page);
@@ -53,4 +53,5 @@ public class BoardController {
 			return "/board/list";  // /WEB-INF/view/list.jsp
 		 }
 		}
+	
 }

@@ -26,7 +26,8 @@ public class Board {
 	private int no;// 게시판 글 번호
 	private String title;//레시피 글 제목
 	private String content;//레시피
-	
+	private int like;
+	private int unlike;
 	@ManyToOne
 	@JoinColumn(name="user_id")//Select * from user where id=??
 	User user;
@@ -37,6 +38,8 @@ public class Board {
 		dto.setTitle(this.getTitle());
 		dto.setContent(this.getContent());
 		dto.setUser_Id(this.getUser().getId());
+		dto.setLike(this.getLike());
+		dto.setUnlike(this.getUnlike());
 		return dto;
 	}
 }

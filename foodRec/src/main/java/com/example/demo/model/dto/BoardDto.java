@@ -17,13 +17,15 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private String user_Id;
-	
+	private int like;
+	private int unlike;
 	public Board toEntity() {
 		Board board = new Board();
 		board.setNo(this.getNo());
 		board.setTitle(this.getTitle());
 		board.setContent(this.getContent());
-	
+		board.setLike(this.getLike());
+		board.setUnlike(this.getUnlike());
 		return board;
 	}
 
