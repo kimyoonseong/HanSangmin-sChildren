@@ -7,8 +7,8 @@ MEMBERS : 한상민, 김윤성, 장정우, 백성욱
 
 
 ## 개요
-- Spring Tool Suite를 이용하여 MYSQL와 JAVA를 연동하였습니다.
-- 기능으로는 사용자의 버스예약 시간을 Mysql에 Insert, Select를 구현하였습니다.
+- Spring Boot 이용
+- 
 
 ## **Keep (유지할 점):**
 
