@@ -27,16 +27,16 @@ public class Board {
 	private String title;//레시피 글 제목
 	private String content;//레시피
 	
-//	@ManyToOne
-//	@JoinColumn(name="user_id")//Select * from user where id=??
-//	User user;
+	@ManyToOne
+	@JoinColumn(name="user_id")//Select * from user where id=??
+	User user;
 	
 	public BoardDto toDto() { 
 		BoardDto dto = new BoardDto();
 		dto.setNo(this.getNo());
 		dto.setTitle(this.getTitle());
 		dto.setContent(this.getContent());
-//		dto.setUser_Id(this.getUser().getId());
+		dto.setUser_Id(this.getUser().getId());
 		return dto;
 	}
 }
