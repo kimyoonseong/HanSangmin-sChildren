@@ -2,10 +2,12 @@ package com.example.demo.service;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.entity.Board;
@@ -13,12 +15,14 @@ import com.example.demo.model.entity.User;
 import com.example.demo.repository.BoardRepository;
 import com.example.demo.repository.UserRepository;
 
+@Service
 public class BoardService {
 	
 	private BoardRepository brepo;
 	private UserRepository urepo;
 	
 	// controller에서 값을 받아올 생성자
+	@Autowired
 	public BoardService(BoardRepository brepo, UserRepository urepo) {
 		this.brepo = brepo;
 		this.urepo = urepo;
