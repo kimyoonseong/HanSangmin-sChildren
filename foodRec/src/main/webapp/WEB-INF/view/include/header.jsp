@@ -93,7 +93,7 @@
                 <a href="#" onclick="confirmWithdrawal()" class="btn btn-primary">회원탈퇴</a>
                 <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
                 <a href="/board/list" class="btn btn-primary">게시글 목록</a>
-
+				
             </div>
         </c:if>
     </div>

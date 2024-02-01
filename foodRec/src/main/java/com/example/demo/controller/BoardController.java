@@ -136,15 +136,15 @@ public class BoardController {
 			return "redirect:/board/detail?no="+boardId;
 		}
 		//레시피 랭킹 목록 페이지
-//		@GetMapping("/Rank")  
-//		public String Rank(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { 
-//			page--;
-//			Page<Board> pageInfo = service.listRankBoard(page);
-//			model.addAttribute("pageInfo", pageInfo);
-//			
-//			log.debug("page: {}",page);
-//			log.debug("pageInfo: {}",pageInfo);
-//			return "board/list";
-	//
-//		}
+		@GetMapping("/rank")  
+		public String Rank(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { 
+			page--;
+			Page<Board> pageInfo = service.listRankBoard(page);
+			model.addAttribute("pageInfo", pageInfo);
+			
+			log.debug("page: {}",page);
+			log.debug("pageInfo: {}",pageInfo);
+			return "/board/rank";
+	
+		}
 }

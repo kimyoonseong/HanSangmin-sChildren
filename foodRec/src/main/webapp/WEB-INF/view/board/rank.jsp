@@ -2,14 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-.title22 {
-    font-size: 50px;
-    
-    color: blue;
-}
-</style>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글목록</title>
@@ -20,17 +12,12 @@
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
     <div class="container mt-4" style="padding-top: 90px">
-    <div>
-    <span class="title22 ">글목록</span>
-    <br>
-            <a href="/board/rank" class="btn btn-primary float-right">레시피 랭킹</a>
-            <br>
-    </div>
-        
+        <h1>* 레시피 추천 순위 *</h1>
+
         <table class="table">
             <thead>
                 <tr>
-                    <th>번호</th>
+                    
                     <th>제목</th>
                     <th>작성자</th>
                     <th>추천수</th>
@@ -40,8 +27,7 @@
             <tbody>
                 <c:forEach items="${pageInfo.content}" var="board">
                     <tr>
-                        <td><a href="/board/detail?no=${board.no}">${board.no}</a></td>
-                        <td>${board.title}</td>
+                        <td><a href="/board/detail?no=${board.no}">${board.title}</a></td>
                         <td>${board.user.name}</td>
                         <td>${board.likeRecipe}</td>
                          <td>${board.unlikeRecipe}</td>
@@ -50,7 +36,7 @@
             </tbody>
         </table>
 
-        <form action="/board/list" method="get" class="form-inline">
+        <form action="/board/rank" method="get" class="form-inline">
             <div class="form-group mr-2">
                 <label for="page">페이지:</label>
                 <input type="text" name="page" class="form-control" value="${pageInfo.number + 1}">
