@@ -14,7 +14,7 @@
 <body>
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
-    <div class="container mt-4">
+    <div class="container mt-4" style="padding-top: 90px">
         <h1>게시글 등록</h1>
 
         <form method="post" action="/board/regist" enctype="multipart/form-data">

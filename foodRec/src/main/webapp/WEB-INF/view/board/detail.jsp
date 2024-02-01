@@ -11,7 +11,7 @@
 <body>
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
-    <div class="container mt-4">
+    <div class="container mt-4" style="padding-top: 90px">
         <h1 class="mb-4">게시글 상세</h1>
         <form method="post" action="/board/update" enctype="multipart/form-data">
             <div class="form-group">

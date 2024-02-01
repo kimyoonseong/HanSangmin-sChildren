@@ -10,6 +10,7 @@
     <style>
         body {
             padding: 20px;
+            padding-top: 100px;
         }
 
         hr {
@@ -28,7 +29,7 @@
 
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
-    <div class="container mt-4">
+    <div class="container mt-4" style="padding-top: 90px">
         <h1>환영합니다!</h1>
         <p>안녕하세요! 홈페이지에 오신 것을 환영합니다.</p>
         <hr>
