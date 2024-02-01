@@ -7,7 +7,10 @@
     <title>게시글 등록</title>
     <!-- 부트스트랩 CDN을 사용하는 경우 아래 링크를 추가 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
+
+
+    <!-- CKEditor 스크립트 추가 -->
+	<script src="//cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script></head>
 <body>
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
@@ -25,7 +28,13 @@
             </div>
             <div class="form-group">
                 <label for="content">글 내용:</label>
-                <textarea rows="10" cols="100" name="content" class="form-control"></textarea>
+                <textarea rows="30" cols="100" id = "editor" name="content" class="form-control"></textarea>
+                 <!-- 텍스트 에디터 적용 -->
+				<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+			    <script>
+			      ClassicEditor.create( document.querySelector( '#editor' ) );
+			    </script>
+
             </div>
             <div class="form-group">
                 <label for="image">이미지 업로드:</label>

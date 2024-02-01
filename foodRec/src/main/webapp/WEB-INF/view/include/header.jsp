@@ -31,6 +31,13 @@
 </head>
 <body>
 
+<a href = "/board/test.jsp">feqfeqfS</a>
+<div class="container">
+    <h1>모두의 레시피</h1>
+
+    <div class="login-container">
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <a class="navbar-brand" href="#">My Board</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -52,6 +59,7 @@
         </ul>
     </div>
     <div class="login-container" style="padding-top:15px">
+
         <c:if test="${empty loginUser}">
         	<c:if test="${not empty loginmsg}">
                 <div class="alert alert-danger text-left" role="alert">
@@ -79,11 +87,13 @@
 
         <c:if test="${not empty loginUser}">
             <div class="user-info">
+
                 <p style="color: white">${loginUser.name}님 반갑습니다.</p>
                 <a href="/user/logout" class="btn btn-primary">로그아웃</a>
                 <a href="#" onclick="confirmWithdrawal()" class="btn btn-primary">회원탈퇴</a>
                 <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
                 <a href="/board/list" class="btn btn-primary">게시글 목록</a>
+
             </div>
         </c:if>
     </div>
@@ -94,6 +104,7 @@
 <div class="container mt-4">
 
     
+
 
     <hr>
 

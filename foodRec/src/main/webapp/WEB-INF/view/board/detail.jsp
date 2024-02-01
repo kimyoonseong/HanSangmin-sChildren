@@ -31,7 +31,15 @@
             </div>
             <div class="form-group">
                 <label for="content">내용:</label>
-                <textarea rows="10" cols="100" name="content" class="form-control">${board.content}</textarea>
+                <textarea rows="10" cols="100" id = "content name="content" class="form-control">${board.content}</textarea>
+                <!-- CKEditor 적용 스크립트 -->
+		    <script>
+		        ClassicEditor
+		            .create(document.querySelector('#content'))
+		            .catch(error => {
+		                console.error(error);
+		            });
+		    </script>
             </div>
 
             <!-- 이미지 추가 -->

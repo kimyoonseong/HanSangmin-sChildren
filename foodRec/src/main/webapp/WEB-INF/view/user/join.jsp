@@ -8,9 +8,11 @@
     <!-- 부트스트랩 CDN을 사용하는 경우 아래 링크를 추가 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        body {
+     body {
+            background-color: #f8f9fa;
             padding: 20px;
         }
+    
 
         h1 {
             margin-bottom: 20px;
@@ -28,7 +30,7 @@
 </head>
 <body>
 
-    <%@include file="/WEB-INF/view/include/header.jsp"%>
+
 
     <div class="container mt-4" style="padding-top: 90px">
         <h1>회원 가입</h1>
@@ -49,7 +51,7 @@
             <div class="form-group">
                 <input type="text" name="grade" class="form-control" placeholder="사용자 등급" value="GUEST">
             </div>
-            <button type="submit" class="btn btn-primary">회원 가입</button>
+            <button type="submit" class="btn btn-primary  float-right" >회원 가입</button>
         </form>
     </div>
 
