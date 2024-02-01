@@ -44,5 +44,10 @@ public class UserService {
 		
 		throw new RuntimeException("아이디나 비밀번호를 확인해주세요.");
 	}
+	
+	// 삭제
+	public void deleteUser(String d_id) {
+		urepo.deleteById(d_id);
+	}
 }
 

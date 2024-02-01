@@ -9,7 +9,7 @@ public class FoodRecApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FoodRecApplication.class, args);
 		
-		System.out.println("백성욱");
+		System.out.println("SangMin's children");
 	}
 
 }

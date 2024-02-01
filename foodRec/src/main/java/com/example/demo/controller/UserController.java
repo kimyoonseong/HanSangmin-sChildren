@@ -58,4 +58,14 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@GetMapping("/secession")
+	public String secession(HttpSession session, Model model) {
+		UserDto dto = (UserDto)session.getAttribute("loginUser");// 삭제될 id
+		String d_id = dto.getId();
+		service.deleteUser(d_id);
+		session.invalidate();
+
+		return "redirect:/";
+	}
 }

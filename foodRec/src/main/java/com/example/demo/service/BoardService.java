@@ -59,7 +59,7 @@ public class BoardService {
 		
 		
 		// 삭제
-	public void deleteBoard(int no) {
+	public void deleteBoard(int no) {	
 		brepo.deleteById(no);		
 	}
 
