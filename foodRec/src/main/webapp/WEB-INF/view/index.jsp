@@ -33,7 +33,7 @@
         <p>안녕하세요! 홈페이지에 오신 것을 환영합니다.</p>
         <hr>
         <!-- static 폴더가 기본 폴더가 됨 -->
-        <img src="/img/shin.png" class="img-fluid" alt="Shin 이미지">
+        <img src="/upload/shin.png" class="img-fluid" alt="Shin 이미지">
     </div>
 
     <!-- 부트스트랩 JS 및 Popper.js, jQuery CDN을 사용하는 경우 아래 스크립트 추가 -->

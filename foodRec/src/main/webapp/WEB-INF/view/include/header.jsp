@@ -34,9 +34,9 @@
     </style>
 </head>
 <body>
-
+<a href = "/board/test.jsp">feqfeqfS</a>
 <div class="container">
-    <h1>My Board</h1>
+    <h1>모두의 레시피</h1>
 
     <div class="login-container">
         <c:if test="${empty loginUser}">
@@ -62,14 +62,18 @@
 
         <c:if test="${not empty loginUser}">
             <div class="user-info">
-                <p>${loginUser.name}님 반갑습니다.</p>
+                <span>${loginUser.name}님 반갑습니다.</span>
                 <a href="/user/logout" class="btn btn-link">로그아웃</a>
                 <a href="#" onclick="confirmWithdrawal()" class="btn btn-link">회원탈퇴</a>
-                <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
-                <a href="/board/list" class="btn btn-primary">게시글 목록</a>
+                <!-- 수정된 부분 -->
+                <div class="button-group">
+                    <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
+                    <a href="/board/list" class="btn btn-primary">게시글 목록</a>
+                </div>
             </div>
         </c:if>
     </div>
+
 
     <hr>
 

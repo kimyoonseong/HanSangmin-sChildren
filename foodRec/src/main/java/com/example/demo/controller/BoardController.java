@@ -117,5 +117,10 @@ public class BoardController {
 		return "redirect:/board/detail?no=" +boardDto.getNo();
 	}
 	
+	 @GetMapping("/test")
+	    public String showTestPage() {
+	        return "/board/food"; // 이 부분에서 "test"는 test.jsp 파일의 이름일 수 있습니다.
+	    }
+	
 	
 }
