@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="content">글 내용:</label>
-                <textarea rows="30" cols="100" id = "editor" name="content" class="form-control"></textarea>
+              <textarea rows="30" cols="100" id = "editor" name="content" class="form-control"></textarea>
                  <!-- 텍스트 에디터 적용 -->
 				<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 			    <script>
