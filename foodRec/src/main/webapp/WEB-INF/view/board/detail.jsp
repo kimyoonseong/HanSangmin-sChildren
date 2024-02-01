@@ -47,8 +47,21 @@
             <c:if test="${not empty loginUser && loginUser.id == board.user.id}">
                 <button type="submit" class="btn btn-primary">수정</button>
                 <a href="/board/delete?no=${board.no}" class="btn btn-danger">삭제</a>
+               
             </c:if>
         </form>
+        	<c:if test="${not empty loginUser && loginUser.id == board.user.id}">
+        			<form method="POST" action="/board/recommend">
+        				<input type="hidden" name="no" value="${board.no}">
+					    <button type="submit" class="btn btn-primary">추천</button>
+					    
+					</form>
+					<form method="POST" action="/board/notrecommend">
+        				<input type="hidden" name="no" value="${board.no}">
+					    <button type="submit" class="btn btn-danger">비추</button>
+					    
+					</form>
+			</c:if>
     </div>
 
     <!-- 부트스트랩 JS 및 Popper.js, jQuery CDN을 사용하는 경우 아래 스크립트 추가 -->

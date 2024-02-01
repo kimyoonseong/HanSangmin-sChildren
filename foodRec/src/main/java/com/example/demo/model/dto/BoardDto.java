@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.model.entity.Board;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class BoardDto {
 	
 	private String imagePath;
 	private MultipartFile image;
+	private int likeRecipe;
+	private int unlikeRecipe;
 	
 	public Board toEntity() {
 		Board board = new Board();
@@ -29,6 +32,8 @@ public class BoardDto {
 		board.setTitle(this.getTitle());
 		board.setContent(this.getContent());
 		board.setImagePath(this.getImagePath());
+		board.setLikeRecipe(this.getLikeRecipe());
+		board.setUnlikeRecipe(this.getUnlikeRecipe());
 		return board;
 	}
 
