@@ -30,7 +30,7 @@
 
     <%@include file="/WEB-INF/view/include/header.jsp"%>
 
-    <div class="container mt-4">
+    <div class="container mt-4" style="padding-top: 90px">
         <h1>회원 가입</h1>
 
         <form action="/user/join" method="post">

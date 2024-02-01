@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ page isErrorPage = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¿¡·¯ ¹ß»ý</title>
+<meta charset="UTF-8">
+<title>ì—ëŸ¬ ë°œìƒ</title>
 </head>
 <body>
-	¿äÃ» Ã³¸® °úÁ¤¿¡¼­ ¿¡·¯°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù.<br>
-	ºü¸¥ ½Ã°£ ³»¿¡ ¹®Á¦¸¦ ÇØ°áÇÏµµ·Ï ÇÏ°Ú½À´Ï´Ù.
+	ìš”ì²­ ì²˜ë¦¬ ê³¼ì •ì—ì„œ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.<br>
+	ë¹ ë¥¸ ì‹œê°„ ë‚´ì— ë¬¸ì œë¥¼ í•´ê²°í•˜ë„ë¡ í•˜ê² ìŠµë‹ˆë‹¤.
 </body>
 </html>
 

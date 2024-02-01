@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +11,17 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            padding-top: 70px;
             background-color: #f8f9fa;
             padding: 20px;
+        }
+        
+        .navbar {
+            height: 140px; /* 네비게이션 바의 높이를 120px로 고정 */	
         }
 
         h1 {
             color: #007bff;
-        }
-
-        .login-container {
-            max-width: 400px;
-            margin: auto;
-        }
-
-        .btn-primary {
-            margin-top: 10px;
         }
 
         .user-info {
@@ -35,41 +31,69 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>My Board</h1>
-
-    <div class="login-container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand" href="#">My Board</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                
+                <a href="/user/join" class="nav-link">회원가입</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">About</a>
+            </li>
+        </ul>
+    </div>
+    <div class="login-container" style="padding-top:15px">
         <c:if test="${empty loginUser}">
-            <c:if test="${not empty loginmsg}">
-                <div class="alert alert-danger" role="alert">
+        	<c:if test="${not empty loginmsg}">
+                <div class="alert alert-danger text-left" role="alert">
                     ${loginmsg}
                 </div>
             </c:if>
+           
 
-            <form method="post" action="/user/login">
-                <div class="form-group">
-                    <label for="id">아이디:</label>
-                    <input type="text" class="form-control" id="id" name="id" required>
-                </div>
-                <div class="form-group">
-                    <label for="pass">비밀번호:</label>
-                    <input type="password" class="form-control" id="pass" name="pass" required>
-                </div>
-                <button type="submit" class="btn btn-primary">로그인</button>
-            </form>
-            <a href="/user/join" class="btn btn-link">회원가입</a>
+            <form method="post" action="/user/login" class="form-row">
+			    <div class="form-group col">
+			        <label for="id">아이디:</label>
+			        <input type="text" class="form-control" id="id" name="id" required>
+			    </div>
+			    <div class="form-group col">
+			        <label for="pass">비밀번호:</label>
+			        <input type="password" class="form-control" id="pass" name="pass" required>
+			    </div>
+			    <div class="form-group col">
+			        <button type="submit" class="btn btn-primary">로그인</button>
+			    </div>
+			</form>
+			
+            
         </c:if>
 
         <c:if test="${not empty loginUser}">
             <div class="user-info">
-                <p>${loginUser.name}님 반갑습니다.</p>
-                <a href="/user/logout" class="btn btn-link">로그아웃</a>
-                <a href="#" onclick="confirmWithdrawal()" class="btn btn-link">회원탈퇴</a>
+                <p style="color: white">${loginUser.name}님 반갑습니다.</p>
+                <a href="/user/logout" class="btn btn-primary">로그아웃</a>
+                <a href="#" onclick="confirmWithdrawal()" class="btn btn-primary">회원탈퇴</a>
                 <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
                 <a href="/board/list" class="btn btn-primary">게시글 목록</a>
             </div>
         </c:if>
     </div>
+
+
+</nav>
+
+<div class="container mt-4">
+
+    
 
     <hr>
 
@@ -84,5 +108,9 @@
 
 </div>
 
+<!-- 부트스트랩 JS 및 Popper.js, jQuery CDN을 사용하는 경우 아래 스크립트 추가 -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
