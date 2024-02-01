@@ -18,7 +18,7 @@
             margin-top: 20px; /* 상단 여백 조정 */
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f8f9fa; /* 배경색 설정 */
+            background-color: #f8f9fa;
         }
 
         .image-upload-container input[type="file"] {
@@ -26,24 +26,34 @@
         }
 
         .recipe-title {
-            font-size: 36px; /* 글씨 크기 설정 */
-            color: #007bff; /* 부트스트랩 'primary' 색상 */
-            margin-top: 20px; /* 상단 여백 설정 */
-            padding: 120px; /* 패딩 설정 */
-            background-color: #f0f0f0; /* 회색 배경 설정 */
-            border-radius: 5px; /* 테두리 둥글게 설정 */
-            width: 100%; /* 너비 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
+            font-size: 36px;
+            color: #007bff;
+            margin-top: 20px;
+            padding: 60px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+        }
+        .recipe-test {
+            font-size: 20px;
+            padding: 0px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="recipe-title">모두의 레시피</div>
+        <div class="recipe-test">무슨 음식을 만들고 싶으신가요?</div>
         <div class="image-upload-container">
             <form id="uploadForm" enctype="multipart/form-data">
-                <input type="file" name="image" required>
+                <input type="file" name="image" onchange="previewImage(this)">
                 <input type="button" value="Upload Image" onclick="uploadImage();">
+                <img id="preview" width="299" height="299" style="display:none;">
             </form>
             <div id="prediction" style="margin-top: 20px;"></div>
             <div id="recipe" style="margin-top: 10px;"></div>
@@ -56,14 +66,14 @@
             let formData = new FormData($("#uploadForm")[0]);
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:5000/upload", // Flask 서버 업로드 URL
+                url: "http://127.0.0.1:5000/upload",
                 data: formData,
                 cache: false,
                 contentType: false,
                 processData: false,
                 success: function(res) {
                     console.log(res.prediction);
-                    $("#prediction").html("<h3>예측된 음식: " + res.prediction + "</h3>").css("font-size", "24px");
+                    $("#prediction").html(res.prediction + "의 레시피" + "</h3>").css("font-size", "24px");
                     if (res.recipe) {
                         $("#recipe").html("<p>레시피: " + res.recipe + "</p>");
                     } else {
@@ -76,6 +86,18 @@
                     $("#recipe").empty();
                 }
             });
+        }
+
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result).show();
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
         }
     </script>
 </body>
