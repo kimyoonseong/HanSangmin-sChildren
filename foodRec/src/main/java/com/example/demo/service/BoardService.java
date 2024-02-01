@@ -110,27 +110,24 @@ public class BoardService {
 		
 	}
 	
-	// 좋아요 순으로 페이지로 끊어서 값을 가지고 오기
-//	public Page<Board> listRankBoard(int page){
-//		// 좋아요 순 정렬 - 내림차순
-//		Pageable pageable = PageRequest.of(page, 10, Direction.DESC, "like");
-//		//Page<Board> pageInfo = brepo.findAll(pageable);
-//		
-//		 // 좋아요가 null일 때는 0으로 처리
-//	    Page<Board> pageInfo = brepo.findAll(pageable);
-//	    //List<Board> rankedBoards = pageInfo.getContent();
-//
-//	  
-////	    rankedBoards.forEach(board -> {
-////	        if (board.getLike() == null) {
-////	            board.setLike(0);
-////	        }
-////	    });
-//		return pageInfo;
-//		
-//	}
-	// BoardServiceImpl.java
+//	 좋아요 순으로 페이지로 끊어서 값을 가지고 오기
+	public Page<Board> listRankBoard(int page){
+		// 좋아요 순 정렬 - 내림차순
+		Pageable pageable = PageRequest.of(page, 10, Direction.DESC, "likeRecipe");
+		//Page<Board> pageInfo = brepo.findAll(pageable);
+		
+		 // 좋아요가 null일 때는 0으로 처리
+	    Page<Board> pageInfo = brepo.findAll(pageable);
+	    //List<Board> rankedBoards = pageInfo.getContent();
 
-	
+	  
+//	    rankedBoards.forEach(board -> {
+//	        if (board.getLike() == null) {
+//	            board.setLike(0);
+//	        }
+//	    });
+		return pageInfo;
+		
+	}
 
 }

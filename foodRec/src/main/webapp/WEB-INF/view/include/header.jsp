@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<a href = "/board/test.jsp">feqfeqfS</a>
+
 <div class="container">
     <h1>모두의 레시피</h1>
 
@@ -53,9 +53,9 @@
                 
                 <a href="/user/join" class="nav-link">회원가입</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">About</a>
-            </li>
+				<li class="nav-item">
+    			<a href="/board/test" class="nav-link">음식검색</a>
+			</li>
         </ul>
     </div>
     <div class="login-container" style="padding-top:15px">
@@ -102,7 +102,7 @@
                 <a href="#" onclick="confirmWithdrawal()" class="btn btn-primary">회원탈퇴</a>
                 <a href="/board/regist" class="btn btn-primary">게시글 등록</a>
                 <a href="/board/list" class="btn btn-primary">게시글 목록</a>
-
+				
             </div>
         </c:if>
     </div>
