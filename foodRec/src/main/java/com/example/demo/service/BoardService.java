@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.entity.Board;
@@ -39,9 +41,15 @@ public class BoardService {
 	// 전체읽기 - 페이지로 끊어서 값을 가지고 오는 방법 존재 - 221p
 	public Page<Board> listBoard(int page){
 		// 최신순 정렬 - 내림차순
-		Pageable pageable = PageRequest.of(page, 5, Direction.DESC, "no");
+		Pageable pageable = PageRequest.of(page, 10, Direction.DESC, "no");
 		Page<Board> pageInfo = brepo.findAll(pageable);
 		return pageInfo;
+	}
+	public List<Board> searchByTitle(String query) {
+	    // 여기서 실제로 데이터베이스에서 검색 수행
+		
+		List<Board> searchResults = brepo.findByTitleContaining(query); // 값의 존재 확인 가능
+		return searchResults;
 	}
 
 	// 하나읽기
@@ -121,4 +129,8 @@ public class BoardService {
 //		return pageInfo;
 //		
 //	}
+	// BoardServiceImpl.java
+
+	
+
 }

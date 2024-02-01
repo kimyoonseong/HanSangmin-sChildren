@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -71,12 +72,19 @@ public class BoardController {
 		page--;
 		Page<Board> pageInfo = service.listBoard(page);
 		model.addAttribute("pageInfo", pageInfo);
-		
-		log.debug("page: {}",page);
-		log.debug("pageInfo: {}",pageInfo);
 		return "board/list";
-
 	} 
+	@GetMapping("/search")
+	public String search(@RequestParam(name = "query", required = false) String query, Model model) {
+	    if (query != null) {
+//	    	System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+	        List<Board> searchResults = service.searchByTitle(query);
+//	        System.out.println(searchResults);
+	        model.addAttribute("searchResults", searchResults);
+	    }
+	    return "board/searchResults";
+	}
+	
 	//특정 레시피 조회 
 	@GetMapping("/detail")
 	public String detail(@RequestParam int no, Model model) {
@@ -147,4 +155,6 @@ public class BoardController {
 //			return "board/list";
 	//
 //		}
+		
+	
 }
