@@ -15,10 +15,10 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            margin-top: 20px; /* 상단 여백 조정 */
+            
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f8f9fa;
+			margin-top: 10px; /* 상단 여백 조정 */
         }
 
         .image-upload-container input[type="file"] {
@@ -28,27 +28,19 @@
         .recipe-title {
             font-size: 36px;
             color: #007bff;
-            margin-top: 20px;
-            padding: 60px;
-            background-color: #f0f0f0;
+            margin-top: 100px;
+            padding: 10px;
             border-radius: 5px;
             width: 100%;
-            text-align: center;
+            text-align: left;
         }
-        .recipe-test {
-            font-size: 20px;
-            padding: 0px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            width: 100%;
-            text-align: center;
-        }
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="recipe-title">모두의 레시피</div>
-        <div class="recipe-test">무슨 음식을 만들고 싶으신가요?</div>
+        <div class="recipe-title">무슨 음식을 만들고 싶으신가요?</div>
+        
         <div class="image-upload-container">
             <form id="uploadForm" enctype="multipart/form-data">
                 <input type="file" name="image" onchange="previewImage(this)">

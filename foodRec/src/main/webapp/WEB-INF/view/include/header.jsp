@@ -39,7 +39,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <a class="navbar-brand" href="#">My Board</a>
+    <a class="navbar-brand" href="/">모두의 레시피</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
                 <a href="/user/join" class="nav-link">회원가입</a>
             </li>
 				<li class="nav-item">
-    			<a href="/board/test" class="nav-link">음식검색</a>
+    			<a href="/board/test" class="nav-link">사진검색</a>
 			</li>
         </ul>
     </div>
