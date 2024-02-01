@@ -20,6 +20,8 @@
                     <th>번호</th>
                     <th>제목</th>
                     <th>작성자</th>
+                    <th>추천수</th>
+                    <th>비추천수</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +30,8 @@
                         <td><a href="/board/detail?no=${board.no}">${board.no}</a></td>
                         <td>${board.title}</td>
                         <td>${board.user.name}</td>
+                        <td>${board.likeRecipe}</td>
+                         <td>${board.unlikeRecipe}</td>
                     </tr>
                 </c:forEach>
             </tbody>
