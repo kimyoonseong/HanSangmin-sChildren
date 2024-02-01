@@ -63,4 +63,62 @@ public class BoardService {
 		brepo.deleteById(no);		
 	}
 
+	public void plusLike(Integer boardId) {
+//		Board board = dto.toEntity();
+//		// 현재 좋아요 개수를 가져오기
+//	    Integer currentLikes = board.getLikeRecipe();
+//	   
+//	    // 좋아요 개수가 null이면 1로 초기화, 그렇지 않으면 현재 값에 1 더하기
+//	    int updatedLikes = (currentLikes == null) ? 1 : currentLikes + 1;
+//	    // 증가된 좋아요 개수를 Board 엔티티에 설정
+//	    board.setLikeRecipe(updatedLikes);
+//	    brepo.saveAndFlush(board);	
+		 // 게시물 번호를 기반으로 기존 게시물 엔티티를 찾기
+		Optional<Board> optionalBoard = brepo.findById(boardId);
+
+        if (optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            int currentLikes = board.getLikeRecipe();
+            board.setLikeRecipe(currentLikes + 1);
+            brepo.save(board);
+        } else {
+            throw new RuntimeException("게시물을 찾을 수 없습니다.");
+        }
+	}
+	
+	public void minusLike(Integer boardId) {
+		
+		// 현재 싫어요 개수를 가져오기
+		Optional<Board> optionalBoard = brepo.findById(boardId);
+
+        if (optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            int currentLikes = board.getUnlikeRecipe();
+            board.setUnlikeRecipe(currentLikes + 1);
+            brepo.save(board);
+        } else {
+            throw new RuntimeException("게시물을 찾을 수 없습니다.");
+        }
+		
+	}
+	
+	// 좋아요 순으로 페이지로 끊어서 값을 가지고 오기
+//	public Page<Board> listRankBoard(int page){
+//		// 좋아요 순 정렬 - 내림차순
+//		Pageable pageable = PageRequest.of(page, 10, Direction.DESC, "like");
+//		//Page<Board> pageInfo = brepo.findAll(pageable);
+//		
+//		 // 좋아요가 null일 때는 0으로 처리
+//	    Page<Board> pageInfo = brepo.findAll(pageable);
+//	    //List<Board> rankedBoards = pageInfo.getContent();
+//
+//	  
+////	    rankedBoards.forEach(board -> {
+////	        if (board.getLike() == null) {
+////	            board.setLike(0);
+////	        }
+////	    });
+//		return pageInfo;
+//		
+//	}
 }

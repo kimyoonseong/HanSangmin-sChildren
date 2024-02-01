@@ -122,5 +122,29 @@ public class BoardController {
 	        return "/board/food"; // 이 부분에서 "test"는 test.jsp 파일의 이름일 수 있습니다.
 	    }
 	
-	
+	//좋아요기능
+		@PostMapping("/recommend")
+		public String recommendPosts(@RequestParam("no") Integer boardId) {
+			service.plusLike(boardId);
+			return "redirect:/board/detail?no="+boardId;
+			
+		}
+		//싫어요기능
+		@PostMapping("/notrecommend")
+		public String unlike(@RequestParam("no") Integer boardId) {
+			service.minusLike(boardId);
+			return "redirect:/board/detail?no="+boardId;
+		}
+		//레시피 랭킹 목록 페이지
+//		@GetMapping("/Rank")  
+//		public String Rank(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { 
+//			page--;
+//			Page<Board> pageInfo = service.listRankBoard(page);
+//			model.addAttribute("pageInfo", pageInfo);
+//			
+//			log.debug("page: {}",page);
+//			log.debug("pageInfo: {}",pageInfo);
+//			return "board/list";
+	//
+//		}
 }

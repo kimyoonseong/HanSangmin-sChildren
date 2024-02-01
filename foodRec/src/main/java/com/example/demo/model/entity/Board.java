@@ -2,6 +2,7 @@ package com.example.demo.model.entity;
 
 import com.example.demo.model.dto.BoardDto;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,10 @@ public class Board {
 	private String content;//레시피
 	
 	private String imagePath;// 이미지가 저장되는 경로 
-	
+	@Column(nullable = false)
+	private int likeRecipe;
+	 @Column(nullable = false)
+	private int unlikeRecipe;
 	@ManyToOne
 	@JoinColumn(name="user_id")//Select * from user where id=??
 	User user;
@@ -40,6 +44,8 @@ public class Board {
 		dto.setContent(this.getContent());
 		dto.setUser_Id(this.getUser().getId());
 		dto.setImagePath(this.getImagePath());
+		dto.setLikeRecipe(this.getLikeRecipe());
+		dto.setUnlikeRecipe(this.getUnlikeRecipe());
 		return dto;
 	}
 }

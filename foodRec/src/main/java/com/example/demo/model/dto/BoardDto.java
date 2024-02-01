@@ -22,13 +22,16 @@ public class BoardDto {
 	
 	private String imagePath;
 	private MultipartFile image;
-	
+	private int likeRecipe;
+	private int unlikeRecipe;
 	public Board toEntity() {
 		Board board = new Board();
 		board.setNo(this.getNo());
 		board.setTitle(this.getTitle());
 		board.setContent(this.getContent());
 		board.setImagePath(this.getImagePath());
+		board.setLikeRecipe(this.getLikeRecipe());
+		board.setUnlikeRecipe(this.getUnlikeRecipe());
 		return board;
 	}
 
