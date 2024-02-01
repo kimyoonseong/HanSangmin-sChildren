@@ -119,7 +119,7 @@ public class BoardController {
 	
 	 @GetMapping("/test")
 	    public String showTestPage() {
-	        return "/board/food"; // 이 부분에서 "test"는 test.jsp 파일의 이름일 수 있습니다.
+	        return "/board/test"; // 이 부분에서 "test"는 test.jsp 파일의 이름일 수 있습니다.
 	    }
 	
 	
