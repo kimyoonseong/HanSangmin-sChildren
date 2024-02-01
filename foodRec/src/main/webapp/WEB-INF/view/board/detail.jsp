@@ -29,18 +29,13 @@
                 <label for="title">제목:</label>
                 <input type="text" name="title" value="${board.title}" class="form-control">
             </div>
-            <div class="form-group">
-                <label for="content">내용:</label>
-                <textarea rows="10" cols="100" id = "content name="content" class="form-control">${board.content}</textarea>
-                <!-- CKEditor 적용 스크립트 -->
-		    <script>
-		        ClassicEditor
-		            .create(document.querySelector('#content'))
-		            .catch(error => {
-		                console.error(error);
-		            });
-		    </script>
-            </div>
+            <!-- CKEditor 사용을 위한 textarea 및 히든 필드 추가 -->
+			<div class="form-group">
+    <label for="content">내용:</label>
+    
+        <div id="renderedContent">${board.content}</div>
+    </div>
+</div>
 
             <!-- 이미지 추가 -->
             <div class="form-group">
