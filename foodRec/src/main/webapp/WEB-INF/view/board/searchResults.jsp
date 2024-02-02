@@ -2,6 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+.title22 {
+    font-size: 50px;
+    
+    color: blue;
+}
+.link-button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db; /* 버튼 테두리 색상 */
+    color: #3498db; /* 버튼 텍스트 색상 */
+    background-color: white; /* 버튼 배경색 */
+    border-radius: 3px; /* 버튼 테두리 둥글기 */
+    transition: background-color 0.3s, color 0.3s; /* 호버 효과 속도 조절 */
+}
+
+.link-button:hover {
+    background-color: #3498db; /* 호버 시 버튼 배경색 */
+    color: white; /* 호버 시 버튼 텍스트 색상 */
+}
+thead {
+            background-color: #bdd5ea;
+            color: white;
+        }
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글목록</title>
@@ -20,10 +49,11 @@
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>추천수</th>
-                            <th>비추천수</th>
+		                    <th>제목</th>
+		                    <th>작성자</th>
+		                    <th>추천수</th>
+		                    <th>비추천수</th>
+		                    <th>조회수</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +62,19 @@
                         <!-- searchResults는 List<Board> 타입이므로, 단순한 목록을 나타냅니다.
 							searchResults.content가 아닌 그냥 searchResults를 통해 전체 목록을 가져옵니다. -->
                             <tr>
-                                <td><a href="/board/detail?no=${board.no}">${board.no}</a></td>
-                                <td>${board.title}</td>
-                                <td>${board.user.name}</td>
-                                <td>${board.likeRecipe}</td>
-                                <td>${board.unlikeRecipe}</td>
+                                <td>${board.no}</td>
+		                        <form action="/board/views" method=post class="form-inline">
+		       				 	<td>
+		       				 	<button type="submit" class="link-button" name="boardId" value="${board.no}">
+		        				${board.title}
+		    					</button>
+		    					</td>
+		    					</form>
+		                        <td>${board.user.name}</td>
+		                    
+		                        <td>${board.likeRecipe}</td>
+		                         <td>${board.unlikeRecipe}</td>
+		                         <td>${board.allViews1}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
