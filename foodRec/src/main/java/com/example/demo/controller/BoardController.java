@@ -151,10 +151,20 @@ public class BoardController {
 			Page<Board> pageInfo = service.listRankBoard(page);
 			model.addAttribute("pageInfo", pageInfo);
 			
-			log.debug("page: {}",page);
-			log.debug("pageInfo: {}",pageInfo);
+			//log.debug("page: {}",page);
+			//log.debug("pageInfo: {}",pageInfo);
 			return "/board/rank";
 	
 		}
-
+		//조회수 표시
+		@PostMapping("/views")
+	    public String getBoardDetail(@RequestParam("boardId") Integer boardId) {
+			System.out.println("-------------------------------------------나옴");
+	        //if ("increaseViews".equals(action)) {
+	            service.increaseViews(boardId);
+	        //}
+	        
+	        
+	        return "redirect:/board/detail?no="+boardId;
+	    }
 }
