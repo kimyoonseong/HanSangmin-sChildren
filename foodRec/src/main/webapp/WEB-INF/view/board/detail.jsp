@@ -27,7 +27,9 @@
 </head>
 <body>
     <%@include file="/WEB-INF/view/include/header.jsp"%>
-   <div class="container mt-4" style="padding-top: 70px">
+     
+   <div class="container mt-4" style="padding-top: 90px">
+   
     <div class="row">
         <!-- 왼쪽에는 게시글 상세 -->
         <div class="col-md-6">
@@ -63,26 +65,30 @@
             <div class="form-group">
                 <label for="name">작성자:</label>
                 <input type="text" value="${board.user.name}" class="form-control" disabled>
-            </div>
-            <div class="form-group">
-                <label for="title">제목:</label>
-                <input type="text" name="title" value="${board.title}" class="form-control">
-            </div>
-            <!-- CKEditor 사용을 위한 textarea 및 히든 필드 추가 -->
-			<div class="form-group">
-    <label for="content">내용:</label>
-        <div id="renderedContent">${board.content}</div>
+                <br>
+            <div class="form-group text-center">
+
+    <div style="font-size: 36px; font-weight: bold; color: blue; font-weight: bold; margin-top: 5px;">
+        ${board.title}
     </div>
 </div>
-            <!-- 이미지 추가 -->
-            <div class="form-group">
-                <c:if test="${not empty board.imagePath}">
-                    <img src="<%= request.getContextPath() %>/upload/${board.imagePath}" class="img-fluid" alt="이미지" width="300px">
-                </c:if>
-                <c:if test="${empty board.imagePath}">
-                    <span>이미지 없음</span>
-                </c:if>
-            </div>
+
+
+            <!-- CKEditor 사용을 위한 textarea 및 히든 필드 추가 -->
+			<div class="form-group">
+
+		
+
+
+		<div id="renderedContent">${board.content}</div>
+
+
+
+
+
+    </div>
+</div>
+           
             <c:if test="${not empty loginUser && loginUser.id == board.user.id}">
                 <button type="submit" class="btn btn-primary">수정</button>
                 <a href="/board/delete?no=${board.no}" class="btn btn-danger">삭제</a>
