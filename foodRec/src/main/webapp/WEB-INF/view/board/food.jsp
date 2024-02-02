@@ -11,25 +11,25 @@
         let formData = new FormData($("#uploadForm")[0]);
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:5000/upload", // Flask 서버 업로드 URL
+            url: "http://127.0.0.1:5000/upload", // Flask ìë² ìë¡ë URL
             data: formData,
             cache: false,
             contentType: false,
             processData: false,
             success: function(res) {
-                console.log(res.prediction); // 콘솔에 예측 결과 로깅
+                console.log(res.prediction); // ì½ìì ìì¸¡ ê²°ê³¼ ë¡ê¹
                 $("#prediction").html(res.prediction + "</h3>").css("font-size", "24px");
-                // 레시피 정보를 표시하는 코드
-                if (res.recipe) { // 응답에 레시피 정보가 포함되어 있는 경우
-                    $("#recipe").html(res.recipe + "</p>"); // 레시피 정보 표시
+                // ë ìí¼ ì ë³´ë¥¼ íìíë ì½ë
+                if (res.recipe) { // ìëµì ë ìí¼ ì ë³´ê° í¬í¨ëì´ ìë ê²½ì°
+                    $("#recipe").html(res.recipe + "</p>"); // ë ìí¼ ì ë³´ íì
                 } else {
-                    $("#recipe").html("<h3>음식 레시피 정보가 없습니다.</h3>"); // 레시피 정보가 없는 경우의 처리
+                    $("#recipe").html("<h3>ìì ë ìí¼ ì ë³´ê° ììµëë¤.</h3>"); // ë ìí¼ ì ë³´ê° ìë ê²½ì°ì ì²ë¦¬
                 }
             },
             error: function(xhr, status, error) {
-                console.error("Error: " + error); // 에러 로깅
-                $("#prediction").html("<p>분류에 실패했습니다.</p>"); // 에러 메시지 표시
-                $("#recipe").empty(); // 기존에 표시된 레시피 정보 제거
+                console.error("Error: " + error); // ìë¬ ë¡ê¹
+                $("#prediction").html("<p>ë¶ë¥ì ì¤í¨íìµëë¤.</p>"); // ìë¬ ë©ìì§ íì
+                $("#recipe").empty(); // ê¸°ì¡´ì íìë ë ìí¼ ì ë³´ ì ê±°
             }
         });
     }
@@ -40,7 +40,7 @@
         <input type="file" name="image" />
         <input type="button" value="Upload Image" onclick="uploadImage();" />
     </form>
-    <div id="prediction"></div> <!-- 예측된 클래스 이름을 표시할 div -->
-    <div id="recipe"></div> <!-- 레시피 정보를 표시할 div -->
+    <div id="prediction"></div> <!-- ìì¸¡ë í´ëì¤ ì´ë¦ì íìí  div -->
+    <div id="recipe"></div> <!-- ë ìí¼ ì ë³´ë¥¼ íìí  div -->
 </body>
 </html>

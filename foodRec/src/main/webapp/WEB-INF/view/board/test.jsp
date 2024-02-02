@@ -64,8 +64,9 @@
                 contentType: false,
                 processData: false,
                 success: function(res) {
-                    console.log(res.prediction);
-                    $("#prediction").html(res.prediction + "의 레시피" + "</h3>").css("font-size", "24px");
+                	console.log(res.prediction);
+                    var hashtag = "<a href='/board/search?query=" + encodeURIComponent(res.prediction) + "'>#" + res.prediction + "</a>";
+                    $("#prediction").html(hashtag + "의 레시피").css("font-size", "24px");
                     if (res.recipe) {
                         $("#recipe").html("<p>레시피: " + res.recipe + "</p>");
                     } else {
