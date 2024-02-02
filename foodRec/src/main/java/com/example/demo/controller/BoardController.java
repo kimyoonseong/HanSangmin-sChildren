@@ -77,9 +77,7 @@ public class BoardController {
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "query", required = false) String query, Model model) {
 	    if (query != null) {
-//	    	System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 	        List<Board> searchResults = service.searchByTitle(query);
-//	        System.out.println(searchResults);
 	        model.addAttribute("searchResults", searchResults);
 	    }
 	    return "board/searchResults";
