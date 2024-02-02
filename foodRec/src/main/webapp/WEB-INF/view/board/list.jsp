@@ -44,7 +44,7 @@ thead {
     <div class="container mt-4" style="padding-top: 90px">
     <div>
     <span class="title22 ">글목록</span>
-    <br>
+
             <a href="/board/rank" class="btn btn-primary float-right">레시피 랭킹</a>
             <br>
     </div>
@@ -67,6 +67,14 @@ thead {
        				 	<td>${board.no}</td>
                         <form action="/board/views" method=post class="form-inline">
        				 	<td>
+       				 	<span class="form-group">
+                <c:if test="${not empty board.imagePath}">
+                    <img src="<%= request.getContextPath() %>/upload/${board.imagePath}" class="img-fluid" alt="이미지" width="30px">
+                </c:if>
+                <c:if test="${empty board.imagePath}">
+                    <img src="/upload/default.png" class="img-fluid" alt="이미지" width="30px">
+                </c:if>
+            </span>
        				 	<button type="submit" class="link-button" name="boardId" value="${board.no}">
         				${board.title}
     					</button>
