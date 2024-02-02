@@ -52,6 +52,8 @@ public class BoardService {
 		List<Board> searchResults = brepo.findByTitleContaining(query); // 값의 존재 확인 가능
 		return searchResults;
 	}
+	
+
 
 	// 하나읽기
 	public Board detailBoard(int no) {

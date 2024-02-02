@@ -82,6 +82,7 @@ public class BoardController {
 	    }
 	    return "board/searchResults";
 	}
+
 	
 	//특정 레시피 조회 
 	@GetMapping("/detail")
