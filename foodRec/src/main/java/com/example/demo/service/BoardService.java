@@ -9,13 +9,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.entity.Board;
 import com.example.demo.model.entity.User;
 import com.example.demo.repository.BoardRepository;
 import com.example.demo.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class BoardService {
@@ -70,6 +71,13 @@ public class BoardService {
 	public void deleteBoard(int no) {	
 		brepo.deleteById(no);		
 	}
+	
+	@Transactional
+	public void deleteAllBoard(String d_id) {
+		// EntityManager를 사용하는 메서드는 트랜잭션 내에서 실행되어야 합니다. 
+		brepo.deleteAllByUser_Id(d_id);
+	}
+	
 
 	public void plusLike(Integer boardId) {
 //		Board board = dto.toEntity();
@@ -129,5 +137,7 @@ public class BoardService {
 		return pageInfo;
 		
 	}
+
+	
 
 }
