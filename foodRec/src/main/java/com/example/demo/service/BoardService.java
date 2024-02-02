@@ -137,7 +137,19 @@ public class BoardService {
 		return pageInfo;
 		
 	}
-
+	//조회수 증가 로직
 	
+	public void increaseViews(Integer boardId) {
+		Optional<Board> optionalBoard = brepo.findById(boardId);
 
+        if (optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            int currentViews = board.getAllViews1();
+            board.setAllViews1(currentViews + 1);
+            brepo.save(board);
+        } else {
+            throw new RuntimeException("게시물을 찾을 수 없습니다.");
+        }
+    }
+	
 }
