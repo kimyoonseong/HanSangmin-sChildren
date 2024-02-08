@@ -22,13 +22,17 @@ import com.example.demo.service.BoardService;
 
 import jakarta.servlet.ServletContext;
 import lombok.extern.slf4j.Slf4j;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 @Slf4j
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	private BoardService service;
-	
+	@Autowired
+	private S3Client s3Client;
 	@Autowired
 	private ServletContext servletContext; // 현재 파일이 실행중인 경로 등을 상대경로로 사용하기 위해
 	
@@ -47,7 +51,7 @@ public class BoardController {
 	
 	// 레시피를 form으로 받아서 전달
 	@PostMapping("/regist")
-	public String registBoard(BoardDto boardDto) {
+	public String registBoard(BoardDto boardDto, Model model) {
 		MultipartFile imageFile = boardDto.getImage();
 		String originalFilename = imageFile.getOriginalFilename();
 		String uploadDir = servletContext.getRealPath("/upload/"); // 현재 JSP 파일의 실행중 위치 + getRealPath의 파라미터로 삽입한 경로
@@ -57,13 +61,24 @@ public class BoardController {
 		String filePath = uploadDir + originalFilename;
 		System.out.println(filePath);
 		try {
-			imageFile.transferTo(new File(filePath));
+			PutObjectRequest request = PutObjectRequest.builder()
+					.bucket("upload") // 파일을 집어넣을 버킷(폴더)
+					.key(originalFilename) // 파일명
+					.build(); // 요청을 작성 (어느 버켓에, 어떤 이름으로 저장할지)
+			// 객체 스토리지 클라이언트에게 요청과 파일(바이트)을 보내는 명령
+			System.out.println(request.toString());
+			s3Client.putObject(request, RequestBody.fromBytes(imageFile.getBytes()));
+			
+			boardDto.setImagePath(originalFilename); // Set the image path
+			service.writeBoard(boardDto);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-		boardDto.setImagePath(originalFilename); // Set the image path
-		service.writeBoard(boardDto);
+		
+		
+		
+		
+		
 		return "redirect:/";
 	}
 	// 레시피 목록 출력

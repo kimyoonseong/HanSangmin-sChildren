@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.controller.BoardController;
 import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.entity.Board;
 import com.example.demo.model.entity.User;
@@ -17,7 +18,8 @@ import com.example.demo.repository.BoardRepository;
 import com.example.demo.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class BoardService {
 	
@@ -37,6 +39,8 @@ public class BoardService {
 		Board board = dto.toEntity();
 		board.setUser(user);
 		brepo.saveAndFlush(board);
+		log.info("[regist] | id: {} title:{} no:{} ]", dto.getUser_Id(),board.getTitle(),board.getNo());  
+		  
 	}
 	
 	// 전체읽기 - 페이지로 끊어서 값을 가지고 오는 방법 존재 - 221p

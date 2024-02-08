@@ -88,7 +88,16 @@
 
     </div>
 </div>
-           
+            <!-- 이미지 추가 -->
+            <div class="form-group">
+                <c:if test="${not empty board.imagePath}">
+                    <img src="https://food-fisa.s3.ap-northeast-2.amazonaws.com/upload/${board.imagePath}" class="img-fluid" alt="이미지" width="300px">
+                </c:if>
+                <c:if test="${empty board.imagePath}">
+                    <span>이미지 없음</span>
+                </c:if>
+            </div>
+            <!-- 여기까지가 성욱이가 추가한 부분 -->
             <c:if test="${not empty loginUser && loginUser.id == board.user.id}">
                 <button type="submit" class="btn btn-primary">수정</button>
                 <a href="/board/delete?no=${board.no}" class="btn btn-danger">삭제</a>
