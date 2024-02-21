@@ -13,6 +13,7 @@ Springboot를 이용한 프로젝트로 회원가입, 로그인, 게시물, 추�
 ## 개요
 
 작업 순서로는, Entity에 테이블들을 생성후 Jparepository 를 활용하여 workbench 와 상호작용을 하였습니다. 그다음 dto를 생성하여 toEntity toDto 함수를 만들어 서로 왕복을 할 수 있게 하였고, View 을 jsp로 생성하여 사용자에게 입력받게 하였습니다. 그 후 postmapping getmapping annotation을 이용하여 Controller 에 전달한 후, 해당 주소에 해당하는 동작들은 Service 에서 로직을 구현 하였습니다.
+이후 aws ec2 배포, aws s3 이미지 저장, aws rds 데이터베이스 등을 활용하여 배포하였습니다.
 
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/c58ce017-aaab-4b35-9205-23c854db3c53/895ec85c-a3ea-4729-a7a3-ff44be207c4b/Untitled.png)
 
